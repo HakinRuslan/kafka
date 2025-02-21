@@ -20,7 +20,6 @@ def cons_loop(consumer, topics):
             if msg.error():
                 raise KafkaException(msg.error())
             else:
-                # действия с полученным сообщением 
                 data = json.loads(msg.value().decode('utf-8'))
                 logging.info(f"Received message: {data}")
     except KeyboardInterrupt:
